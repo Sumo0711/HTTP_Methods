@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>GET商品範例</title>
+</head>
+<body>
+  <h1 id="productName">載入中...</h1>
+  <p id="productDescription"></p>
+  <p id="productPrice"></p>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+
+    fetch('Products.json')
+      .then(res => res.json())
+      .then(data => {
+        const product = data.products.find(p => p.id === productId);
+        if (product) {
+          document.getElementById('productName').textContent = product.name;
+          document.getElementById('productDescription').textContent = product.description;
+          document.getElementById('productPrice').textContent = `售價：$${product.price}`;
+        } else {
+          document.getElementById('productName').textContent = '找不到此商品';
+        }
+      });
+  </script>
+</body>
+</html>
