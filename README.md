@@ -8,7 +8,8 @@ HTTP 請求（HTTP Methods）定義了客戶端對伺服器資源的操作方式
 資料附加在 URL 後方，例如： https://example.com/search?keyword=apple  
 - 適合查詢類行為（不更動資料）  
 - 安全性較低，資料顯示於網址  
-- 有長度限制（URL 通常限制約 2048 字元）  
+- 有長度限制（URL 通常限制約 2048 字元）
+  
 ## POST  
 用來向伺服器「提交資料」，例如註冊、登入、留言。  
 - 資料放在 request body 中，不顯示在網址列  
